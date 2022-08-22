@@ -1,4 +1,5 @@
-import com.plcoding.weatherapp.data.remote.WeatherDto
+package com.plcoding.weatherapp.data.remote
+
 import retrofit2.http.GET
 import retrofit2.http.Query
 
