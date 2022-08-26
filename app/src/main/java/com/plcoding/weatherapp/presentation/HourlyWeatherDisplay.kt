@@ -4,7 +4,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -19,8 +20,8 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun HourlyWeatherDisplay(
     weatherData: WeatherData,
-    modifier: Modifier,
-    textColor: Color = Color.White
+    modifier: Modifier = Modifier,
+    textColor: Color = MaterialTheme.colorScheme.onBackground
 ) {
     val formattedTime = remember(weatherData) {
         weatherData.time.format(
@@ -34,12 +35,12 @@ fun HourlyWeatherDisplay(
     ) {
         Text(
             text = formattedTime,
-            color = Color.LightGray
+            color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.86f)
         )
         Image(
             painter = painterResource(id = weatherData.weatherType.iconRes),
             contentDescription = null,
-            modifier = androidx.compose.ui.Modifier.width(40.dp)
+            modifier = Modifier.width(40.dp)
         )
         Text(
             text = "${weatherData.temperatureCelsius}°C",

@@ -1,3 +1,5 @@
+package com.plcoding.weatherapp
+
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.plcoding.weatherapp.data.location.DefaultLocationTracker

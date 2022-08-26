@@ -8,28 +8,24 @@ import androidx.lifecycle.viewModelScope
 import com.plcoding.weatherapp.domain.location.LocationTracker
 import com.plcoding.weatherapp.domain.repository.WeatherRepository
 import com.plcoding.weatherapp.domain.util.Resource
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-
-@HiltViewModel
-class WeatherViewModel @Inject constructor(
+class WeatherViewModel (
     private val repository: WeatherRepository,
     private val locationTracker: LocationTracker
-) : ViewModel() {
+): ViewModel() {
+
     var state by mutableStateOf(WeatherState())
         private set
 
-    fun loadWeatherInFo() {
+    fun loadWeatherInfo() {
         viewModelScope.launch {
             state = state.copy(
                 isLoading = true,
                 error = null
             )
             locationTracker.getCurrentLocation()?.let { location ->
-                when (val result =
-                    repository.getWeatherData(location.latitude, location.longitude)) {
+                when(val result = repository.getWeatherData(location.latitude, location.longitude)) {
                     is Resource.Success -> {
                         state = state.copy(
                             weatherInfo = result.data,
@@ -48,7 +44,7 @@ class WeatherViewModel @Inject constructor(
             } ?: kotlin.run {
                 state = state.copy(
                     isLoading = false,
-                    error = "Не удалось определить местоположение. Обязательно предоставьте разрешение и включите GPS."
+                    error = "Не удалось определить местоположение. Предоставьте разрешение и включите GPS."
                 )
             }
         }
