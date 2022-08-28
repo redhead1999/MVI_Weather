@@ -72,7 +72,7 @@ fun WeatherCard(
                 ) {
                     WeatherDataDisplay(
                         value = data.pressure.roundToInt(),
-                        unit = "мм рт. ст.",
+                        unit = " мм рт. ст.",
                         icon = ImageVector.vectorResource(id = R.drawable.ic_pressure),
                         iconTint = MaterialTheme.colorScheme.onBackground,
                         textStyle = TextStyle(color = MaterialTheme.colorScheme.onBackground)
