@@ -30,7 +30,7 @@ fun WeatherForecast(
                     .padding(10.dp)
             ) {
                 Text(
-                    text = "Today",
+                    text = "Сегодня",
                     fontSize = 20.sp,
                     color = MaterialTheme.colorScheme.onPrimary
                 )

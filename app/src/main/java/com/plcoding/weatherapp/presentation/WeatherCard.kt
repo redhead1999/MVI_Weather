@@ -39,7 +39,7 @@ fun WeatherCard(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "Today ${
+                    text = "Сегодня ${
                         data.time.format(
                             DateTimeFormatter.ofPattern("HH:mm")
                         )
@@ -72,7 +72,7 @@ fun WeatherCard(
                 ) {
                     WeatherDataDisplay(
                         value = data.pressure.roundToInt(),
-                        unit = "hpa",
+                        unit = "мм рт. ст.",
                         icon = ImageVector.vectorResource(id = R.drawable.ic_pressure),
                         iconTint = MaterialTheme.colorScheme.onBackground,
                         textStyle = TextStyle(color = MaterialTheme.colorScheme.onBackground)
@@ -86,7 +86,7 @@ fun WeatherCard(
                     )
                     WeatherDataDisplay(
                         value = data.windSpeed.roundToInt(),
-                        unit = "km/h",
+                        unit = "км/ч",
                         icon = ImageVector.vectorResource(id = R.drawable.ic_wind),
                         iconTint = MaterialTheme.colorScheme.onBackground,
                         textStyle = TextStyle(color = MaterialTheme.colorScheme.onBackground)
